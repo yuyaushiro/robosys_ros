@@ -1,0 +1,15 @@
+<launch>
+  <node pkg="nodelet" type="nodelet" name="robosys_ros_nodelet_manager" args="manager" output="screen"/>
+
+  <node pkg="nodelet" type="nodelet" name="cv_camera_nodelet" output="screen"
+    args="load cv_camera/CvCameraNodelet robosys_ros_nodelet_manager">
+    <param name="image_width" type="int" value="1280"/>
+    <param name="image_height" type="int" value="720"/>
+    <param name="rate" type="double" value="30.0"/>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="ball_detector_nodelet" output="screen"
+    args="load robosys_ros/BallDetectorNodelet robosys_ros_nodelet_manager">
+    <remap from="image_rect_color" to="cv_camera_nodelet/image_rect_color" />
+  </node>
+</launch>

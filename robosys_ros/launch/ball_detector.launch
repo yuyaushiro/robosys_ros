@@ -1,0 +1,40 @@
+<launch>
+  <node pkg="cv_camera" type="cv_camera_node" name="cv_camera" output="screen">
+    <param name="image_width" type="int" value="1280" />
+    <param name="image_height" type="int" value="720" />
+    <param name="device_id" type="int" value="0" />
+    <param name="rate" type="double" value="30.0"/>
+  </node>
+
+  <node pkg="image_proc" type="image_proc" name="image_proc" ns="cv_camera" output="screen">
+    <param name="queue_size" type="int" value="1"/>
+  </node>
+
+  <node pkg="robosys_ros" type="ball_detector_node" name="ball_detector" output="screen">
+    <remap from="image_rect_color" to="cv_camera/image_rect_color"/>
+  </node>
+
+  <node pkg="image_view" type="image_view" name="image_view" output="screen">
+    <remap from="image" to="ball_detections_image"/>
+  </node>
+  <node pkg="image_view" type="image_view" name="red_view" output="screen">
+    <remap from="image" to="red_extract_image"/>
+  </node>
+  <node pkg="image_view" type="image_view" name="blue_view" output="screen">
+    <remap from="image" to="blue_extract_image"/>
+  </node>
+  <node pkg="image_view" type="image_view" name="yellow_view" output="screen">
+    <remap from="image" to="yellow_extract_image"/>
+  </node>
+
+  <node pkg="robosys_ros" type="red_threshold" name="red_threshold" output="screen">
+  </node>
+  <node pkg="robosys_ros" type="blue_threshold" name="blue_threshold" output="screen">
+  </node>
+  <node pkg="robosys_ros" type="yellow_threshold" name="yellow_threshold" output="screen">
+  </node>
+  <node pkg="robosys_ros" type="ball_threshold" name="ball_threshold" output="screen">
+  </node>
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" output="screen">
+  </node>
+</launch>

@@ -1,0 +1,6 @@
+<library path="lib/librobosys_ros">
+  <class name="robosys_ros/BallDetectorNodelet" type="robosys_ros::BallDetectorNodelet" base_class_type="nodelet::Nodelet">
+    <discriptions>
+    </discriptions>
+  </class>
+</library>
