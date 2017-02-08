@@ -6,7 +6,7 @@ robosys2016 2nd homework
 -------------------
 cv_cameraとimage_viewの２つのパッケージを用意  
 端末を開き以下を実行  
-```
+```  
 $ roslaunch robosys_ros ball_detector.launch
 ```  
 動画のデモ  
