@@ -29,7 +29,6 @@ ball_detector_node
 
 * ball_threshold/circularity (int: default 70) 円形度閾値[%]
 * ball_threshold/label_area (int 400) ラベリング最小面積[pixel]
-
 * COLOR_threshold/hue_lower (int) 色相下限
 * COLOR_threshold/hue_upper (int) 色相上限
 * COLOR_threshold/saturation_lower (int) 彩度下限
