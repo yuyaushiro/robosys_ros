@@ -9,7 +9,9 @@ cv_cameraとimage_viewの２つのパッケージを用意  
 ```
 $ roslaunch robosys_ros ball_detector.launch
 ```
-動画のデモ  
+デモ動画
+-------------------
+<https://youtu.be/YCKHXR2XM9c>  
 
 ball_detector_node
 -------------------
